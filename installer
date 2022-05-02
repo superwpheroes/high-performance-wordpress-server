@@ -19,7 +19,6 @@ apt install redis -y
 systemctl start redis-server
 systemctl enable redis-server
 cd /usr/local/lsws/
-mv Example high-performance-production-server
 chown -R nobody:nogroup /usr/local/lsws/high-performance-production-server/html
 find /usr/local/lsws/high-performance-production-server/html/ -type d -exec chmod 750 {} \;
 find /usr/local/lsws/high-performance-production-server/html/ -type f -exec chmod 640 {} \;
