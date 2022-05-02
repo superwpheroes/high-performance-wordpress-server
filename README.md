@@ -81,7 +81,7 @@ sudo /usr/local/lsws/admin/misc/admpass.sh
 ```
 ## Or
 ```jsx
-wget https://github.com/Softicious/high-performance-production-server/blob/main/installer
+wget https://raw.githubusercontent.com/Softicious/high-performance-production-server/main/installer
 chmod +x installer
 sudo ./installer
 ```
