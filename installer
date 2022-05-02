@@ -14,6 +14,7 @@ sudo /usr/local/lsws/bin/lswsctrl start
 cd /tmp
 git clone https://github.com/Softicious/high-performance-production-server.git
 sudo cp high-performance-production-server/httpd_config.conf /usr/local/lsws/conf/
+sudo mv /usr/local/lsws/conf/vhosts/Example/ /usr/local/lsws/conf/vhosts/high-performance-production-server/
 sudo cp high-performance-production-server/vhconf.conf /usr/local/lsws/conf/vhosts/high-performance-production-server/
 sudo /usr/local/lsws/bin/lswsctrl restart
 sudo apt install redis -y
