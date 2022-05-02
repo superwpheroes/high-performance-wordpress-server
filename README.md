@@ -79,10 +79,12 @@ find /usr/local/lsws/high-performance-production-server/html/ -type d -exec chmo
 find /usr/local/lsws/high-performance-production-server/html/ -type f -exec chmod 640 {} \;
 chown -R nobody:nogroup /usr/local/lsws/high-performance-production-server/html
 ```
-## Or run
+## Or
+```jsx
 sudo wget https://github.com/Softicious/high-performance-production-server.gi
 sudo chmod +x 
 sudo ./installer
+```
 
 ## Add Networking Rules
 - Networking>VPC Networks>Firewall
