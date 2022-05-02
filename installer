@@ -12,7 +12,7 @@ sudo apt-get install openlitespeed -y
 sudo mv /usr/local/lsws/Example /usr/local/lsws/high-performance-production-server
 sudo /usr/local/lsws/bin/lswsctrl start
 cd /tmp
-git clone https://github.com/Softicious/high-performance-production-server
+git clone https://github.com/Softicious/high-performance-production-server.git
 sudo cp high-performance-production-server/httpd_config.conf /usr/local/lsws/conf/
 sudo cp high-performance-production-server/vhconf.conf /usr/local/lsws/conf/vhosts/high-performance-production-server/
 sudo /usr/local/lsws/bin/lswsctrl restart
