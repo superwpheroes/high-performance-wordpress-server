@@ -80,9 +80,9 @@ sudo chown -R nobody:nogroup /usr/local/lsws/high-performance-production-server/
 ```
 ## Or
 ```jsx
-sudo wget https://raw.githubusercontent.com/Softicious/high-performance-production-server/main/installer
-sudo chmod +x installer
-sudo ./installer
+wget https://raw.githubusercontent.com/Softicious/high-performance-production-server/main/installer
+chmod +x installer
+./installer
 ```
 
 ## Add Networking Rules
