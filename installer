@@ -12,7 +12,7 @@ apt-get install openlitespeed -y
 /usr/local/lsws/bin/lswsctrl start
 cd /tmp
 git clone https://github.com/Softicious/high-performance-production-server
-cp high-performance-wordpress**/**httpd_config.conf /usr/local/lsws/conf/
+cp high-performance-wordpress/httpd_config.conf /usr/local/lsws/conf/
 cp high-performance-wordpress/vhconf.conf /usr/local/lsws/conf/vhosts/high-performance-production-server/
 /usr/local/lsws/bin/lswsctrl restart
 apt install redis -y
