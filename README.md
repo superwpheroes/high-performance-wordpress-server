@@ -80,7 +80,7 @@ sudo chown -R nobody:nogroup /usr/local/lsws/high-performance-production-server/
 ```
 ## Or
 ```jsx
-wget https://raw.githubusercontent.com/Softicious/high-performance-production-server/main/installer
+wget https://github.com/Softicious/high-performance-production-server/blob/main/installer
 chmod +x installer
 sudo ./installer
 ```
