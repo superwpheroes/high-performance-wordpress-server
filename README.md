@@ -65,7 +65,7 @@ sudo apt install lsphp74-common lsphp74-curl lsphp74-imap lsphp74-json lsphp74-m
 sudo apt-get install openlitespeed -y
 sudo /usr/local/lsws/bin/lswsctrl start
 cd /tmp
-git clone https://github.com/Softicious/high-performance-production-server
+git clone https://github.com/Softicious/high-performance-production-server.git
 sudo cp high-performance-production-server/httpd_config.conf /usr/local/lsws/conf/
 sudo cp high-performance-production-server/vhconf.conf /usr/local/lsws/conf/vhosts/high-performance-production-server/
 sudo /usr/local/lsws/bin/lswsctrl restart
