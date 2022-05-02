@@ -29,7 +29,7 @@ We will use the (**f1-micro**) which costs nothing... for ever! . You can upgrad
 - choose location
 - open ports: HTTP, HTTPS
 - Boot disk: Ubuntu 20.04 LTS
-- Networking apply tag: `wordpressvm` ,
+- Networking apply tag: `superwp` ,
 - use the installer content as startup script to install the instance :
 
 ## Or sudo into instance
