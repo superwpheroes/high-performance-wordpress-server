@@ -81,7 +81,7 @@ chown -R nobody:nogroup /usr/local/lsws/high-performance-production-server/html
 ```
 ## Or
 ```jsx
-sudo wget https://github.com/Softicious/high-performance-production-server.gi
+https://github.com/Softicious/high-performance-production-server/blob/main/installer
 sudo chmod +x 
 sudo ./installer
 ```
