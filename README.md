@@ -77,6 +77,7 @@ sudo chown -R nobody:nogroup /usr/local/lsws/high-performance-production-server/
 sudo find /usr/local/lsws/high-performance-production-server/html/ -type d -exec chmod 750 {} \;
 sudo find /usr/local/lsws/high-performance-production-server/html/ -type f -exec chmod 640 {} \;
 sudo chown -R nobody:nogroup /usr/local/lsws/high-performance-production-server/html
+sudo /usr/local/lsws/admin/misc/admpass.sh
 ```
 ## Or
 ```jsx
