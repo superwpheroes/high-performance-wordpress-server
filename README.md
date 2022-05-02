@@ -47,9 +47,11 @@ We will use the (**f1-micro**) which costs nothing... for ever! . You can upgrad
 - open ports: HTTP, HTTPS
 - Boot disk: Ubuntu 20.04 LTS
 - Networking apply tag: `wordpressvm` ,
-- use a startup script to install OpenLitespeed, Wordpress, PHP :
+- use a startup script to install OpenLitespeed, PHP :
 
 ```jsx
+
+  
 #!/bin/bash
 apt update -y
 apt install firewalld -y
@@ -63,22 +65,24 @@ apt install lsphp74-common lsphp74-curl lsphp74-imap lsphp74-json lsphp74-mysql 
 apt-get install openlitespeed -y
 /usr/local/lsws/bin/lswsctrl start
 cd /tmp
-git clone https://github.com/Softicious/High-Performance-Wordpress-Installation.git
-cp High-Performance-Wordpress-Installation**/**httpd_config.conf /usr/local/lsws/conf/
-cp High-Performance-Wordpress-Installation/vhconf.conf /usr/local/lsws/conf/vhosts/superwpheroes/
+git clone https://github.com/Softicious/high-performance-production-server
+cp high-performance-wordpress**/**httpd_config.conf /usr/local/lsws/conf/
+cp high-performance-wordpress/vhconf.conf /usr/local/lsws/conf/vhosts/high-performance-production-server/
 /usr/local/lsws/bin/lswsctrl restart
 apt install redis -y
 systemctl start redis-server
 systemctl enable redis-server
 cd /usr/local/lsws/
-mv Example superwpheroes
-cd html/
-unzip superwpheroes.zip -d /wordpress
-chown -R nobody:nogroup /usr/local/lsws/superwpheroes/html/wordpress
-find /usr/local/lsws/superwpheroes/html/wordpress/ -type d -exec chmod 750 {} \;
-find /usr/local/lsws/superwpheroes/html/wordpress/ -type f -exec chmod 640 {} \;
-chown -R nobody:nogroup /usr/local/lsws/superwpheroes/html/wordpress
+mv Example high-performance-production-server
+chown -R nobody:nogroup /usr/local/lsws/high-performance-production-server/html
+find /usr/local/lsws/high-performance-production-server/html/ -type d -exec chmod 750 {} \;
+find /usr/local/lsws/high-performance-production-server/html/ -type f -exec chmod 640 {} \;
+chown -R nobody:nogroup /usr/local/lsws/high-performance-production-server/html
 ```
+## Or run
+sudo wget https://github.com/Softicious/high-performance-production-server.gi
+sudo chmod +x 
+sudo ./installer
 
 ## Add Networking Rules
 - Networking>VPC Networks>Firewall
