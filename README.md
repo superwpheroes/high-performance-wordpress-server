@@ -1,4 +1,4 @@
-# High-Performance-Production-Server (SuperWordpress)
+# High-Performance-Production-Server (SpeedWp.io)
 
 ### Why
 
@@ -38,6 +38,7 @@ We will use the (**f1-micro**) which costs nothing... for ever! . You can upgrad
 wget https://raw.githubusercontent.com/Softicious/high-performance-production-server/main/installer
 chmod +x installer
 sudo ./installer
+Document root will show Hello SPeedy
 ```
 
 ## Add Networking Rules
@@ -83,11 +84,11 @@ We will then use a separate managed MySQL database (**db.t2.micro**)
 
 Now you can login to your website again, using the IP of your instance, and enter the details:
 ```
-Database name: ProductionDatabase
+Database name: wordpress
 Username: Root
 Password: (password created with MySQSL)
 Database Host: Internal IP of MySQL
-Table Prefix: wp_ // super_wp
+Table Prefix: wp_ // speedwp
 ```
 Your Production server should now be ready!
 
