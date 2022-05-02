@@ -1,10 +1,11 @@
-# High-Performance-Production-Server
+# High-Performance-Production-Server (SuperWordpress)
 
 ### Why
 
 Performance is already important for modern Wordpress sites as users don't want to wait for loading. 
 
-However, Google Core Web Vitals update this year will make performance more important page ranking will be impacted significantly. This is measured using tools such as Pagespeed.
+However, Google Core Web Vitals update this year will make performance more important page ranking will be impacted significantly.
+This is measured using tools such as Pagespeed.
 
 ### What Can I do about this for my Wordpress site?
 
@@ -13,29 +14,11 @@ However, Google Core Web Vitals update this year will make performance more impo
 2. Get a caching plugin.
 3. Get away from Wordpress page builders, and use Gutenberg with a light theme.
 
-
-### But I already have Siteground, Kinsta or WP Engine
-
-Using Siteground, WP Engine or Kinsta are all great options for the average user.
-
-However with the solution here you can improve your Pagespeed, in my tests, by 10 points (do a Kinsta comparison in next video)
-
-### and Monthly Cost ?
-
-For this example I will use Google Cloud + Cloudflare. You can get $300 credits if you sign up for a new Google Cloud account.
-
-[Kinsta](https://kinsta.com/plans/?plan=visits-pro&interval=month) is $30 for 1 WP install, 25k visits, 10gb disk, SSL + CDN.
-
-This solution is [free (VM), $7.67 (Mysql)] for many WP installs, unlimited visits, 10gb disk, SSL +CDN  with fast Litespeed caching.
-
-You can scale the VM and database specs as necessary when your site grows.
-
 ## Let's get started.
-
 
 ---
 
-## 1: Faster Hosting
+## 1: Cloud Hosting
 
 ## Setup a VM Instance with Google Cloud
 
@@ -47,39 +30,10 @@ We will use the (**f1-micro**) which costs nothing... for ever! . You can upgrad
 - open ports: HTTP, HTTPS
 - Boot disk: Ubuntu 20.04 LTS
 - Networking apply tag: `wordpressvm` ,
-- use a startup script to install OpenLitespeed, PHP :
+- use the installer content as startup script to install the instance :
 
-```jsx
+## Or sudo into instance
 
-  
-#!/bin/bash
-sudo apt update -y
-sudo apt install firewalld -y
-firewall-cmd --zone=public --permanent --add-port=80/tcp
-firewall-cmd --zone=public --permanent --add-port=443/tcp
-firewall-cmd --zone=public --permanent --add-port=7080/tcp
-firewall-cmd --reload
-wget -O - http://rpms.litespeedtech.com/debian/enable_lst_debian_repo.sh | sudo bash
-sudo apt-get install lsphp74 -y
-sudo apt install lsphp74-common lsphp74-curl lsphp74-imap lsphp74-json lsphp74-mysql lsphp74-opcache lsphp74-imagick lsphp74-memcached lsphp74-redis -y
-sudo apt-get install openlitespeed -y
-sudo /usr/local/lsws/bin/lswsctrl start
-cd /tmp
-git clone https://github.com/Softicious/high-performance-production-server.git
-sudo cp high-performance-production-server/httpd_config.conf /usr/local/lsws/conf/
-sudo cp high-performance-production-server/vhconf.conf /usr/local/lsws/conf/vhosts/high-performance-production-server/
-sudo /usr/local/lsws/bin/lswsctrl restart
-sudo apt install redis -y
-systemctl start redis-server
-systemctl enable redis-server
-cd /usr/local/lsws/
-sudo chown -R nobody:nogroup /usr/local/lsws/high-performance-production-server/html
-sudo find /usr/local/lsws/high-performance-production-server/html/ -type d -exec chmod 750 {} \;
-sudo find /usr/local/lsws/high-performance-production-server/html/ -type f -exec chmod 640 {} \;
-sudo chown -R nobody:nogroup /usr/local/lsws/high-performance-production-server/html
-sudo /usr/local/lsws/admin/misc/admpass.sh
-```
-## Or
 ```jsx
 wget https://raw.githubusercontent.com/Softicious/high-performance-production-server/main/installer
 chmod +x installer
@@ -96,7 +50,7 @@ At this point, go and make a coffee. It takes some time for your new VM to proce
 - SSH connect, from the Google cloud portal next to your VM, to create password for OpenLitespeed dashboard:
 
 ```bash
-sudo /usr/local/lsws/admin/misc/admpass.sh
+sudo /usr/local/lsws/admin/misc/admpass.sh (no need when using installer)
 ```
 
 - go to dashboard:
@@ -125,16 +79,16 @@ We will then use a separate managed MySQL database (**db.t2.micro**)
 - Connections: no Public
 - Connect to add IP of VM: `10.128.0.2` (or your specific IP)
 - Click on instance to get IP of database
-- Create database `wordpress`
+- Create database `wordpress` (or any other cms)
 
 Now you can login to your website again, using the IP of your instance, and enter the details:
 ```
-Database name: Wordpress
+Database name: ProductionDatabase
 Username: Root
 Password: (password created with MySQSL)
 Database Host: Internal IP of MySQL
-Table Prefix: wp_
+Table Prefix: wp_ // super_wp
 ```
-Your site should now be ready!
+Your Production server should now be ready!
 
 
