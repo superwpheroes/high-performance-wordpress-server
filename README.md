@@ -21,7 +21,7 @@ We will use the (**f1-micro**) which costs nothing... for ever! . You can upgrad
 ## Ssh into instance
 
 ```jsx
-wget https://raw.githubusercontent.com/Softicious/high-performance-production-server/main/installer
+wget https://raw.githubusercontent.com/superwpheroes/high-performance-production-server/main/installer
 chmod +x installer
 sudo ./installer
 ```
