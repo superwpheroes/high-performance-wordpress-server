@@ -6,7 +6,7 @@ Performance is already important for modern Wordpress sites as users don't want 
 
 ---
 
-## 1: Cloud Hosting
+## 1: Web Server
 
 ## Setup a VM Instance with Google Cloud
 
@@ -17,7 +17,6 @@ We will use the (**f1-micro**) which costs nothing... for ever! . You can upgrad
 - choose location
 - open ports: HTTP, HTTPS
 - Boot disk: Ubuntu 20.04 LTS
-- Networking apply tag: `wordpress`
 
 ## Ssh into instance
 
@@ -32,41 +31,31 @@ sudo ./installer
 - add `7080` firewall rule with IP range: `0.0.0.0/0`
 - add `3306`, `33060` firewall rule with IP range: `10.0.0.0/0`
 
-- go to dashboard:
-
-```bash
-http://102.021.03.2:7080
-```
-
-- Add ip address or domain and do Soft Restart
+Litespeed Admin: Add ip address or domain and do Soft Restart (internal ip `10.128.0.2`)
 
 ```jsx
 >Listeners>Default>Virtual Host Mappings>Domains
+
 ```
 
-- Copy the Primary Internal IP `10.128.0.2`
-
-## Setup a separate MySQL database
+## 2 Setup a separate MySQL database
 
 We will then use a separate managed MySQL database (**db.t2.micro**)
-
 - Machine type: Shared core
 - Same location as VM
 - Add root password
 - Storage: 10GB
-- Connections: Private IP, `default` automatic IP range.
-- Connections: no Public
-- Connect to add IP of VM: `10.128.0.2` (or your specific IP)
 - Click on instance to get IP of database
-- Create database `wordpress` (or any other cms)
+- Create database `wordpress` 
 
+## 3 Connect hosting to MySQL database
 Now you can login to your website again, using the IP of your instance, and enter the details:
 ```
 Database name: wordpress
 Username: Root
 Password: (password created with MySQSL)
 Database Host: Internal IP of MySQL
-Table Prefix: wp_ // speedwp
+Table Prefix: wp_ // wordpress
 ```
 Your Production server should now be ready!
 
