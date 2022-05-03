@@ -1,18 +1,6 @@
-# High-Performance-Production-Server (SpeedWp.io)
-
-### Why
+# High-Performance-Wordpress-Production-Server
 
 Performance is already important for modern Wordpress sites as users don't want to wait for loading. 
-
-However, Google Core Web Vitals update this year will make performance more important page ranking will be impacted significantly.
-This is measured using tools such as Pagespeed.
-
-### What Can I do about this for my Wordpress site?
-
-
-1. Get faster hosting.
-2. Get a caching plugin.
-3. Get away from Wordpress page builders, and use Gutenberg with a light theme.
 
 ## Let's get started.
 
@@ -29,30 +17,20 @@ We will use the (**f1-micro**) which costs nothing... for ever! . You can upgrad
 - choose location
 - open ports: HTTP, HTTPS
 - Boot disk: Ubuntu 20.04 LTS
-- Networking apply tag: `superwp` ,
-- use the installer content as startup script to install the instance :
+- Networking apply tag: `wordpress`
 
-## Or sudo into instance
+## Ssh into instance
 
 ```jsx
 wget https://raw.githubusercontent.com/Softicious/high-performance-production-server/main/installer
 chmod +x installer
 sudo ./installer
-Document root will show Hello SPeedy
 ```
 
 ## Add Networking Rules
 - Networking>VPC Networks>Firewall
 - add `7080` firewall rule with IP range: `0.0.0.0/0`
 - add `3306`, `33060` firewall rule with IP range: `10.0.0.0/0`
-
-At this point, go and make a coffee. It takes some time for your new VM to process the startup script. You will know its ready when you can successfully do the following command in SSH:
-
-- SSH connect, from the Google cloud portal next to your VM, to create password for OpenLitespeed dashboard:
-
-```bash
-sudo /usr/local/lsws/admin/misc/admpass.sh (no need when using installer)
-```
 
 - go to dashboard:
 
